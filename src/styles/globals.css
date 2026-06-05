@@ -1,0 +1,279 @@
+/* ============================================
+   NOIR & EMBER — Global Styles
+   ============================================ */
+
+/* --- CSS Custom Properties --- */
+[data-theme="dark"] {
+  --bg-primary: #0d0d0d;
+  --bg-secondary: #141414;
+  --bg-card: #1a1a1a;
+  --bg-card-hover: #202020;
+  --bg-overlay: rgba(13, 13, 13, 0.85);
+  --text-primary: #f5f0e8;
+  --text-secondary: #b0a898;
+  --text-muted: #6b6560;
+  --accent-gold: #d4af37;
+  --accent-gold-hover: #e8c84a;
+  --accent-gold-dim: rgba(212, 175, 55, 0.15);
+  --accent-gold-border: rgba(212, 175, 55, 0.3);
+  --border-color: rgba(255, 255, 255, 0.07);
+  --border-gold: rgba(212, 175, 55, 0.4);
+  --shadow-card: 0 8px 32px rgba(0, 0, 0, 0.6);
+  --shadow-gold: 0 0 30px rgba(212, 175, 55, 0.15);
+  --navbar-bg: rgba(13, 13, 13, 0.92);
+  --scrollbar-thumb: #d4af37;
+  --scrollbar-track: #1a1a1a;
+}
+
+[data-theme="light"] {
+  --bg-primary: #faf8f4;
+  --bg-secondary: #f2ede4;
+  --bg-card: #ffffff;
+  --bg-card-hover: #fdf9f2;
+  --bg-overlay: rgba(250, 248, 244, 0.88);
+  --text-primary: #1a1612;
+  --text-secondary: #5a5248;
+  --text-muted: #9a9088;
+  --accent-gold: #b8860b;
+  --accent-gold-hover: #9a7009;
+  --accent-gold-dim: rgba(184, 134, 11, 0.1);
+  --accent-gold-border: rgba(184, 134, 11, 0.3);
+  --border-color: rgba(0, 0, 0, 0.08);
+  --border-gold: rgba(184, 134, 11, 0.4);
+  --shadow-card: 0 8px 32px rgba(0, 0, 0, 0.1);
+  --shadow-gold: 0 0 30px rgba(184, 134, 11, 0.12);
+  --navbar-bg: rgba(250, 248, 244, 0.92);
+  --scrollbar-thumb: #b8860b;
+  --scrollbar-track: #f2ede4;
+}
+
+/* --- Reset & Base --- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  scroll-padding-top: 80px; /* Offset for fixed navbar */
+}
+
+body {
+  font-family: 'Josefin Sans', sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  transition: background-color 0.4s ease, color 0.4s ease;
+  overflow-x: hidden;
+}
+
+/* --- Custom Scrollbar --- */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--scrollbar-track);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-gold-hover);
+}
+
+/* --- Typography --- */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Cormorant Garamond', serif;
+  line-height: 1.2;
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+p {
+  color: var(--text-secondary);
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 300;
+  letter-spacing: 0.02em;
+  line-height: 1.7;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.3s ease;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+button {
+  cursor: pointer;
+  font-family: 'Josefin Sans', sans-serif;
+  border: none;
+  outline: none;
+}
+
+/* --- Utility Classes --- */
+.section-eyebrow {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--accent-gold);
+  display: block;
+  margin-bottom: 0.75rem;
+}
+
+.section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+  line-height: 1.15;
+}
+
+.gold-divider {
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent-gold), transparent);
+  margin: 1.25rem 0;
+}
+
+.btn-gold {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.9rem 2rem;
+  background: var(--accent-gold);
+  color: #0d0d0d;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  border: 2px solid var(--accent-gold);
+  border-radius: 2px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.btn-gold:hover {
+  background: var(--accent-gold-hover);
+  border-color: var(--accent-gold-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(212, 175, 55, 0.3);
+}
+
+.btn-gold:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 12px rgba(212, 175, 55, 0.2);
+}
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.9rem 2rem;
+  background: transparent;
+  color: var(--text-primary);
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  border: 2px solid var(--border-gold);
+  border-radius: 2px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.btn-ghost:hover {
+  border-color: var(--accent-gold);
+  color: var(--accent-gold);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(212, 175, 55, 0.15);
+}
+
+.btn-ghost:active {
+  transform: translateY(0);
+}
+
+.btn-text {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: transparent;
+  color: var(--accent-gold);
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  border: none;
+  padding: 0;
+  transition: letter-spacing 0.3s ease, color 0.3s ease, gap 0.3s ease;
+  cursor: pointer;
+}
+
+.btn-text:hover {
+  letter-spacing: 0.2em;
+  color: var(--accent-gold-hover);
+  gap: 0.75rem;
+}
+
+/* --- Section Spacing --- */
+section {
+  padding: clamp(4rem, 10vw, 6rem) 0;
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 clamp(1.25rem, 4vw, 2rem);
+}
+
+/* --- Transitions for theme --- */
+*, *::before, *::after {
+  transition: background-color 0.4s ease, border-color 0.4s ease, color 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* Page transition effect */
+main {
+  animation: fadeInPage 0.3s ease-in-out;
+}
+
+@keyframes fadeInPage {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* --- Respect User's Motion Preferences --- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  html {
+    scroll-behavior: auto;
+  }
+}

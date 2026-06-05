@@ -1,0 +1,16 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="64" height="64" fill="#0d0d0d"/>
+  
+  <!-- Gold frame -->
+  <rect x="4" y="4" width="56" height="56" stroke="#d4af37" stroke-width="1.5" fill="none"/>
+  
+  <!-- N letter -->
+  <path d="M16 20 L16 44 L19 44 L19 26 L28 44 L31 44 L31 20 L28 20 L28 38 L19 20 Z" fill="#d4af37"/>
+  
+  <!-- & symbol (ampersand) -->
+  <text x="32" y="40" font-family="serif" font-size="20" fill="#d4af37" font-style="italic">&</text>
+  
+  <!-- E letter -->
+  <path d="M37 20 L37 44 L50 44 L50 41 L40 41 L40 33 L48 33 L48 30 L40 30 L40 23 L50 23 L50 20 Z" fill="#d4af37"/>
+</svg>

@@ -1,0 +1,114 @@
+/* ============================================
+   PREMIUM DISHES
+   ============================================ */
+.premium-dishes {
+  background: var(--bg-secondary);
+}
+
+.premium-dishes__header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.premium-dishes__list {
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+}
+
+/* Item — alternating layout */
+.premium-item {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.premium-item--reversed {
+  direction: rtl;
+}
+
+.premium-item--reversed > * {
+  direction: ltr;
+}
+
+/* Image */
+.premium-item__image-wrap {
+  position: relative;
+  overflow: hidden;
+  border-radius: 4px;
+  aspect-ratio: 4 / 3;
+}
+
+.premium-item__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.premium-item:hover .premium-item__image {
+  transform: scale(1.05);
+}
+
+.premium-item__image-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.08), transparent);
+  pointer-events: none;
+}
+
+/* Content */
+.premium-item__content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0;
+}
+
+.premium-item__title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.15;
+  margin-bottom: 0;
+}
+
+.premium-item__desc {
+  font-size: 0.875rem;
+  line-height: 1.85;
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+}
+
+.premium-item__price-row {
+  margin-bottom: 1.75rem;
+}
+
+.premium-item__price {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--accent-gold);
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 900px) {
+  .premium-item {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .premium-item--reversed {
+    direction: ltr;
+  }
+}
+
+@media (max-width: 600px) {
+  .premium-dishes__list {
+    gap: 3.5rem;
+  }
+}

@@ -1,0 +1,158 @@
+/* ============================================
+   QUICK ACTIONS BAR
+   ============================================ */
+.quick-actions {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  display: none; /* Hidden on desktop, shown on mobile */
+  background: var(--navbar-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-top: 1px solid var(--border-gold);
+  padding: 0.75rem;
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.3);
+  animation: slideUpBar 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes slideUpBar {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.quick-actions__btn {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  padding: 0.75rem 0.5rem;
+  background: transparent;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  min-width: 0;
+  position: relative;
+}
+
+.quick-actions__btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--accent-gold-dim);
+  border-radius: 8px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.quick-actions__btn:active::before {
+  opacity: 1;
+}
+
+.quick-actions__icon {
+  color: var(--text-secondary);
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.quick-actions__btn:active .quick-actions__icon {
+  color: var(--accent-gold);
+  transform: scale(1.15);
+}
+
+.quick-actions__label {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  transition: color 0.3s ease;
+  position: relative;
+  z-index: 1;
+  white-space: nowrap;
+}
+
+.quick-actions__btn:active .quick-actions__label {
+  color: var(--accent-gold);
+}
+
+/* Special styling for Reserve button (primary action) */
+.quick-actions__btn--reserve {
+  background: var(--accent-gold);
+  border: 2px solid var(--accent-gold);
+}
+
+.quick-actions__btn--reserve::before {
+  display: none;
+}
+
+.quick-actions__btn--reserve .quick-actions__icon,
+.quick-actions__btn--reserve .quick-actions__label {
+  color: #0d0d0d;
+}
+
+.quick-actions__btn--reserve:active {
+  background: var(--accent-gold-hover);
+  border-color: var(--accent-gold-hover);
+  transform: scale(0.95);
+}
+
+.quick-actions__btn--reserve:active .quick-actions__icon {
+  color: #0d0d0d;
+  transform: scale(1);
+}
+
+/* ============================================
+   RESPONSIVE - SHOW ONLY ON MOBILE
+   ============================================ */
+@media (max-width: 900px) {
+  .quick-actions {
+    display: flex;
+    gap: 0.5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .quick-actions {
+    padding: 0.5rem 0.65rem calc(0.5rem + env(safe-area-inset-bottom));
+  }
+
+  .quick-actions__btn {
+    padding: 0.65rem 0.35rem;
+  }
+
+  .quick-actions__icon {
+    width: 18px;
+    height: 18px;
+  }
+
+  .quick-actions__label {
+    font-size: 0.6rem;
+  }
+}
+
+/* Add padding to body to prevent content hiding behind quick actions bar */
+@media (max-width: 900px) {
+  body {
+    padding-bottom: 80px;
+  }
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .quick-actions {
+    animation: none;
+  }
+}

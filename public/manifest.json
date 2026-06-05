@@ -1,0 +1,21 @@
+{
+  "name": "Noir & Ember — Fine Dining",
+  "short_name": "Noir & Ember",
+  "description": "A Michelin-starred luxury dining experience. Reserve your table today.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0d0d0d",
+  "theme_color": "#d4af37",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["food", "lifestyle"],
+  "lang": "en-US",
+  "dir": "ltr"
+}

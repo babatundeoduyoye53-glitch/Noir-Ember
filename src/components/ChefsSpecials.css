@@ -1,0 +1,117 @@
+/* ============================================
+   CHEF'S SPECIALS
+   ============================================ */
+.chefs-specials {
+  background: var(--bg-primary);
+}
+
+.chefs-specials__header {
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+
+.chefs-specials__banners {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* Banner */
+.special-banner {
+  position: relative;
+  min-height: 420px;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.special-banner__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(13, 13, 13, 0.92) 0%,
+    rgba(13, 13, 13, 0.7) 45%,
+    rgba(13, 13, 13, 0.1) 100%
+  );
+}
+
+[data-theme="light"] .special-banner__overlay {
+  background: linear-gradient(
+    90deg,
+    rgba(10, 8, 4, 0.9) 0%,
+    rgba(10, 8, 4, 0.65) 45%,
+    rgba(10, 8, 4, 0.05) 100%
+  );
+}
+
+.special-banner__content {
+  position: relative;
+  z-index: 1;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+  width: 100%;
+  max-width: 560px;
+  padding-left: max(2rem, calc((100vw - 1280px) / 2 + 2rem));
+}
+
+.special-banner__title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+  font-weight: 600;
+  color: #f5f0e8;
+  line-height: 1.15;
+  margin-bottom: 1rem;
+}
+
+.special-banner__desc {
+  font-size: 0.875rem;
+  line-height: 1.85;
+  color: rgba(245, 240, 232, 0.75);
+  margin-bottom: 1.75rem;
+  max-width: 420px;
+}
+
+/* Text button hover animation */
+.special-banner .btn-text {
+  color: var(--accent-gold);
+  font-size: 0.7rem;
+}
+
+.special-banner .btn-text:hover {
+  letter-spacing: 0.25em;
+}
+
+/* Divider between banners */
+.special-banner + .special-banner {
+  border-top: 1px solid rgba(212, 175, 55, 0.15);
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 900px) {
+  .special-banner {
+    background-attachment: scroll;
+    min-height: 360px;
+  }
+
+  .special-banner__content {
+    padding-left: 2rem;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .special-banner {
+    min-height: 320px;
+  }
+
+  .special-banner__content {
+    padding: 3rem 1.25rem;
+  }
+}

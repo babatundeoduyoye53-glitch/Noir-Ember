@@ -1,0 +1,228 @@
+/* ============================================
+   COOKIE CONSENT BANNER
+   ============================================ */
+
+.cookie-consent {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 9998;
+  padding: 1.5rem;
+  background: rgba(13, 13, 13, 0.98);
+  backdrop-filter: blur(10px);
+  border-top: 1px solid var(--border-gold);
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.5);
+  animation: slideUp 0.4s ease;
+}
+
+[data-theme="light"] .cookie-consent {
+  background: rgba(250, 248, 244, 0.98);
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.cookie-consent__content {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  position: relative;
+}
+
+/* Icon */
+.cookie-consent__icon {
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--accent-gold-dim);
+  border: 1px solid var(--accent-gold);
+  border-radius: 8px;
+  color: var(--accent-gold);
+}
+
+/* Text Content */
+.cookie-consent__text {
+  flex: 1;
+}
+
+.cookie-consent__title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.cookie-consent__description {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 0.5rem;
+}
+
+.cookie-consent__link {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.8125rem;
+  color: var(--accent-gold);
+  text-decoration: underline;
+  transition: color 0.3s ease;
+}
+
+.cookie-consent__link:hover {
+  color: var(--accent-gold-hover);
+}
+
+/* Actions */
+.cookie-consent__actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-shrink: 0;
+}
+
+.cookie-consent__btn {
+  padding: 0.75rem 1.5rem;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.cookie-consent__btn--accept {
+  background: var(--accent-gold);
+  color: #0d0d0d;
+  border: 2px solid var(--accent-gold);
+}
+
+.cookie-consent__btn--accept:hover {
+  background: var(--accent-gold-hover);
+  border-color: var(--accent-gold-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
+}
+
+.cookie-consent__btn--decline {
+  background: transparent;
+  color: var(--text-secondary);
+  border: 2px solid var(--border-color);
+}
+
+.cookie-consent__btn--decline:hover {
+  border-color: var(--border-gold);
+  color: var(--text-primary);
+}
+
+/* Close Button */
+.cookie-consent__close {
+  position: absolute;
+  top: -0.5rem;
+  right: 0;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--text-muted);
+  transition: all 0.3s ease;
+}
+
+.cookie-consent__close:hover {
+  background: var(--accent-gold);
+  color: #0d0d0d;
+  border-color: var(--accent-gold);
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 900px) {
+  .cookie-consent {
+    padding: 1.25rem;
+  }
+
+  .cookie-consent__content {
+    gap: 1rem;
+  }
+
+  .cookie-consent__icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .cookie-consent__title {
+    font-size: 1.125rem;
+  }
+
+  .cookie-consent__description {
+    font-size: 0.8125rem;
+  }
+
+  .cookie-consent__actions {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .cookie-consent__btn {
+    padding: 0.65rem 1.25rem;
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .cookie-consent {
+    padding: 1rem;
+  }
+
+  .cookie-consent__content {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .cookie-consent__icon {
+    align-self: center;
+  }
+
+  .cookie-consent__text {
+    text-align: center;
+  }
+
+  .cookie-consent__actions {
+    width: 100%;
+  }
+
+  .cookie-consent__btn {
+    width: 100%;
+    padding: 0.875rem;
+  }
+
+  .cookie-consent__close {
+    top: 0.5rem;
+    right: 0.5rem;
+  }
+}
